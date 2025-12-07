@@ -29,7 +29,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // Postman / server-to-server
+      if (!origin) return callback(null, true); 
       if (allowedOrigins.includes(origin)) return callback(null, true);
       return callback(new Error("CORS Not Allowed: " + origin));
     },
@@ -76,7 +76,7 @@ app.post("/api/users", async (req, res) => {
   const updateDoc = {
     $set: {
       name: user.name || "Unknown",
-      email: email, // lowercase
+      email: email, 
       avatar: user.avatar || null,
       bloodGroup: user.bloodGroup || null,
       district: user.district || null,
