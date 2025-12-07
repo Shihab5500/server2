@@ -8,7 +8,7 @@ export async function connectDB(uri) {
     serverApi: { version: ServerApiVersion.v1, strict: true, deprecationErrors: true }
   });
   await client.connect();
-  db = client.db(); // default db from uri
+  db = client.db();
   console.log("✅ MongoDB connected");
 }
 
