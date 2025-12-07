@@ -321,52 +321,6 @@
 //   if (doc?.requesterEmail !== me.email)
 //     return res.status(403).send({ message: "Forbidden" });
 
-//   if (doc.status !== "inprogress" || !["done", "canceled"].includes(status)) {
-//     return res.status(403).send({ message: "Invalid status update" });
-//   }
-
-//   const result = await db.collection("donationRequests").updateOne(
-//     { _id: new ObjectId(id) },
-//     { $set: { status } }
-//   );
-//   res.send(result);
-// });
-
-// app.post("/api/fundings/payment-intent", verifyJWT, async (req, res) => {
-//   const { amount } = req.body;
-//   const amountInCents = Math.round(amount * 100);
-//   if (amountInCents < 50) return res.status(400).send({ message: "Minimum amount is $0.50" });
-
-//   const paymentIntent = await stripe.paymentIntents.create({
-//     amount: amountInCents,
-//     currency: "usd",
-//     payment_method_types: ["card"]
-//   });
-//   res.send({ clientSecret: paymentIntent.client_secret });
-// });
-
-// app.post("/api/fundings", verifyJWT, async (req, res) => {
-//   const db = getDB();
-//   const doc = { ...req.body, date: new Date() };
-//   const result = await db.collection("fundings").insertOne(doc);
-//   res.send(result);
-// });
-
-// app.get("/api/fundings", verifyJWT, async (req, res) => {
-//   const db = getDB();
-//   const list = await db.collection("fundings").find().sort({ date: -1 }).toArray();
-//   res.send(list);
-// });
-
-// app.get("/api/fundings/total", verifyJWT, verifyVolunteerOrAdmin, async (req, res) => {
-//   const db = getDB();
-//   const all = await db.collection("fundings").aggregate([{ $group: { _id: null, total: { $sum: "$amount" } } }]).toArray();
-//   res.send({ total: all[0]?.total || 0 });
-// });
-
-// app.listen(process.env.PORT || 5000, () => {
-//   console.log("🚀 Server running on port", process.env.PORT || 5000);
-// });
 
 
 
