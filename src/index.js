@@ -1,64 +1,3 @@
-// import express from "express";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import jwt from "jsonwebtoken";
-// import Stripe from "stripe";
-// import { connectDB, getDB, ObjectId } from "./db.js";
-// import { verifyJWT } from "./middlewares/verifyJWT.js";
-// import {
-//   verifyAdmin,
-//   verifyVolunteerOrAdmin,
-//   verifyActiveUser
-// } from "./middlewares/roleGuards.js";
-
-// dotenv.config();
-// const app = express();
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-// // Middleware
-// app.use(express.json());
-// app.use(
-//   cors({
-//     origin: [process.env.CLIENT_URL, "https://blooddonation20.netlify.app"],
-//     credentials: true
-//   })
-// );
-
-// // Database Connection
-// await connectDB(process.env.MONGODB_URI);
-
-// // Health Check
-// app.get("/", (req, res) => res.send("Blood Donation Server Running ✅"));
-
-// /* ---------------- AUTH / JWT ---------------- */
-
-// app.post("/api/auth/jwt", (req, res) => {
-//   const { email } = req.body;
-//   if (!email) return res.status(400).send({ message: "email required" });
-//   const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-//     expiresIn: "7d"
-//   });
-//   res.send({ token });
-// });
-
-// /* ---------------- USERS ---------------- */
-
-// // 1. Register user (Force Lowercase Email)
-// app.post("/api/users", async (req, res) => {
-//   const db = getDB();
-//   const user = req.body;
-
-//   if (!user?.email) {
-//     return res.status(400).send({ message: "email required" });
-//   }
-
-  
-//   const email = user.email.toLowerCase();
-
-//   const filter = { email: email };
-
-
-
 
 import express from "express";
 import cors from "cors";
@@ -80,9 +19,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Middleware
 app.use(express.json());
 
-// ✅ CORS FIX (Local + Netlify both allowed, preflight supported)
+
 const allowedOrigins = [
-  (process.env.CLIENT_URL || "").replace(/\/$/, ""), // trailing slash remove
+  (process.env.CLIENT_URL || "").replace(/\/$/, ""), 
   "https://blooddonation20.netlify.app",
   "http://localhost:5173"
 ];
