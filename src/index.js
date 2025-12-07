@@ -244,56 +244,6 @@
 //   res.send(doc);
 // });
 
-// app.patch("/api/requests/:id", verifyJWT, async (req, res) => {
-//   const db = getDB();
-//   const email = req.user?.email?.toLowerCase(); // lowercase fix
-//   if (!email) return res.status(401).send({ message: "Unauthorized" });
-
-//   const me = await db.collection("users").findOne({ email });
-//   if (!me) return res.status(404).send({ message: "User not found in DB" });
-
-//   const id = req.params.id;
-//   const doc = await db.collection("donationRequests").findOne({ _id: new ObjectId(id) });
-//   const isOwner = doc?.requesterEmail === me.email;
-
-//   if (!(isOwner || me.role === "admin"))
-//     return res.status(403).send({ message: "Forbidden" });
-
-//   const updates = req.body;
-//   delete updates.status;
-//   const result = await db.collection("donationRequests").updateOne(
-//     { _id: new ObjectId(id) },
-//     { $set: updates }
-//   );
-//   res.send(result);
-// });
-
-// app.delete("/api/requests/:id", verifyJWT, async (req, res) => {
-//   const db = getDB();
-//   const email = req.user?.email?.toLowerCase(); // lowercase fix
-//   if (!email) return res.status(401).send({ message: "Unauthorized" });
-
-//   const me = await db.collection("users").findOne({ email });
-//   if (!me) return res.status(404).send({ message: "User not found in DB" });
-
-//   const id = req.params.id;
-//   const doc = await db.collection("donationRequests").findOne({ _id: new ObjectId(id) });
-//   const isOwner = doc?.requesterEmail === me.email;
-
-//   if (!(isOwner || me.role === "admin"))
-//     return res.status(403).send({ message: "Forbidden" });
-
-//   const result = await db.collection("donationRequests").deleteOne({ _id: new ObjectId(id) });
-//   res.send(result);
-// });
-
-// app.patch("/api/requests/:id/confirm-donate", verifyJWT, async (req, res) => {
-//   const db = getDB();
-//   const id = req.params.id;
-//   const { donorName, donorEmail } = req.body;
-//   const result = await db.collection("donationRequests").updateOne(
-
-
 
 
 import express from "express";
