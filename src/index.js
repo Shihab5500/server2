@@ -57,50 +57,6 @@
 
 //   const filter = { email: email };
 
-//   const updateDoc = {
-//     $set: {
-//       name: user.name || "Unknown",
-//       email: email, // lowercase
-//       avatar: user.avatar || null,
-//       bloodGroup: user.bloodGroup || null,
-//       district: user.district || null,
-//       upazila: user.upazila || null,
-//       updatedAt: new Date(),
-//     },
-//     $setOnInsert: {
-//       role: "donor",
-//       status: "active",
-//       createdAt: new Date(),
-//     }
-//   };
-
-//   const options = { upsert: true };
-
-//   await db.collection("users").updateOne(filter, updateDoc, options);
-
-//   const savedUser = await db.collection("users").findOne(filter);
-//   res.send(savedUser);
-// });
-
-// // 2. Search donors
-// app.get("/api/donors/search", async (req, res) => {
-//   const db = getDB();
-//   const { bloodGroup, district, upazila } = req.query;
-
-//   const query = { role: "donor", status: "active" };
-
-//   if (bloodGroup) query.bloodGroup = bloodGroup;
-//   if (district) query.district = district;
-//   if (upazila) query.upazila = upazila;
-
-//   const donors = await db.collection("users")
-//     .find(query)
-//     .project({ password: 0 })
-//     .toArray();
-
-//   res.send(donors);
-// });
-
 
 
 
