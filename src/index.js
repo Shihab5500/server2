@@ -22,7 +22,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   (process.env.CLIENT_URL || "").replace(/\/$/, ""), 
-  "https://blooddonation20.netlify.app",
+  "https://blood-donation-platform.netlify.app/",
   "http://localhost:5173"
 ];
 
